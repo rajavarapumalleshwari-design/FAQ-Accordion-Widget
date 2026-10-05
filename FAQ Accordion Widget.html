@@ -1,0 +1,425 @@
+### `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FAQ Accordion</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="faq-section">
+
+        <div class="faq-container">
+
+            <h1>Frequently Asked Questions</h1>
+
+            <p class="subtitle">
+                Find answers to some of the most common questions.
+            </p>
+
+
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>What is this website about?</span>
+                    <span class="icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        This website provides useful information and
+                        services through a simple and user-friendly
+                        interface.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>How can I create an account?</span>
+                    <span class="icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Click the Sign Up button and enter your basic
+                        information to create a new account.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Is the service free?</span>
+                    <span class="icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. You can use the basic features for free.
+                        Additional premium features may be available.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Can I use it on my mobile phone?</span>
+                    <span class="icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. The website is fully responsive and works
+                        on smartphones, tablets, laptops, and desktops.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>How can I contact support?</span>
+                    <span class="icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        You can contact our support team through the
+                        Contact Us page or by sending us an email.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
+
+### `style.css`
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background: #f5f7fb;
+
+    color: #333;
+}
+
+
+/* FAQ Section */
+
+.faq-section {
+    width: 100%;
+
+    padding: 70px 20px;
+}
+
+
+/* Main Container */
+
+.faq-container {
+    width: 100%;
+    max-width: 800px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Heading */
+
+.faq-container h1 {
+    text-align: center;
+
+    font-size: 32px;
+
+    color: #222;
+
+    margin-bottom: 10px;
+}
+
+
+/* Subtitle */
+
+.subtitle {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 35px;
+
+    line-height: 1.5;
+}
+
+
+/* FAQ Item */
+
+.faq-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.faq-item:first-of-type {
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* Question */
+
+.faq-question {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 5px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #333;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #667eea;
+}
+
+
+/* Plus Icon */
+
+.icon {
+    min-width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #f0f2ff;
+
+    color: #667eea;
+
+    font-size: 22px;
+
+    font-weight: normal;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Answer */
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.faq-answer p {
+    padding: 0 45px 20px 5px;
+
+    color: #666;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* Active FAQ */
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+
+    opacity: 1;
+}
+
+
+/* Change + to × */
+
+.faq-item.active .icon {
+    transform: rotate(45deg);
+
+    background: #667eea;
+
+    color: white;
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+
+    .faq-section {
+        padding: 40px 15px;
+    }
+
+    .faq-container {
+        padding: 25px 20px;
+
+        border-radius: 12px;
+    }
+
+    .faq-container h1 {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+
+        margin-bottom: 25px;
+    }
+
+    .faq-question {
+        font-size: 15px;
+
+        padding: 17px 2px;
+    }
+
+    .faq-answer p {
+        padding-left: 2px;
+
+        padding-right: 35px;
+
+        font-size: 14px;
+    }
+
+    .icon {
+        min-width: 28px;
+        height: 28px;
+
+        font-size: 20px;
+    }
+}
+```
+
+### `script.js`
+
+```javascript
+const faqQuestions =
+    document.querySelectorAll(".faq-question");
+
+
+faqQuestions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const currentItem =
+            question.parentElement;
+
+
+        // Close other FAQ items
+        document.querySelectorAll(".faq-item")
+            .forEach(item => {
+
+                if (item !== currentItem) {
+                    item.classList.remove("active");
+                }
+
+            });
+
+
+        // Toggle current FAQ
+        currentItem.classList.toggle("active");
+
+    });
+
+});
+```
+
+### Project Structure
+
+```text
+faq-accordion/
+│
+├── index.html
+├── style.css
+└── script.js
+```
+
+### Features
+
+* ✅ Collapsible FAQ questions
+* ✅ Click to open/close answers
+* ✅ Only one answer open at a time
+* ✅ Smooth expand/collapse animation
+* ✅ Animated `+` icon
+* ✅ Clean professional design
+* ✅ Fully responsive on mobile devices
+* ✅ No external libraries required
+
+Open `index.html` in your browser to run the FAQ Accordion.
